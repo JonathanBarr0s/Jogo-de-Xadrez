@@ -1,7 +1,13 @@
-﻿namespace Xadrez {
+﻿using Tabuleiro;
+
+namespace Xadrez {
     internal class Program {
         static void Main(string[] args) {
-            Console.WriteLine("Hello, World!");
+
+            Posicao posicao = new Posicao(3, 4);
+
+            Console.WriteLine(posicao);
+
         }
     }
 }
