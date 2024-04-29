@@ -13,5 +13,9 @@
             Cor = cor;
             Tabuleiro = tabuleiro;
         }
+
+        public void IncrementarQuantidadeMovimentos() {
+            QteMovimentos++;
+        }
     }
 }

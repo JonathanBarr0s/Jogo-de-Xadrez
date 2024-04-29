@@ -18,6 +18,13 @@ namespace Xadrez {
             Console.WriteLine("  a b c d e f g h");
         }
 
+        public static PosicaoXadrez LerPosicaoXadrez() {
+            string jogada = Console.ReadLine();
+            char coluna = jogada[0];
+            int linha = int.Parse(jogada[1] + "");
+            return new PosicaoXadrez(coluna, linha);
+        }
+
         public static void ImprimirPeca(Peca peca) {
             if (peca.Cor == Cor.Branca) {
                 Console.Write(peca);
