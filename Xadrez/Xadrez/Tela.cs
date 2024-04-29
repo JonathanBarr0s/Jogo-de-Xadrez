@@ -1,10 +1,11 @@
 ﻿using Tab;
 
-namespace Xadrez {
+namespace Xadrez
+{
     internal class Tela {
         public static void ImprimirTabuleiro(Tabuleiro tabuleiro) {
-            for (int i = 0; i < tabuleiro.Linha; i++) {
-                for (int j = 0; j < tabuleiro.Coluna; j++) {
+            for (int i = 0; i < tabuleiro.Linhas; i++) {
+                for (int j = 0; j < tabuleiro.Colunas; j++) {
                     if (tabuleiro.peca(i, j) == null) {
                         Console.Write("- ");
                     } else {

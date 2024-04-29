@@ -1,5 +1,7 @@
-﻿namespace Tab {
-    enum Cor {
+﻿namespace Tab
+{
+    enum Cor
+    {
         Branca,
         Preta
     }

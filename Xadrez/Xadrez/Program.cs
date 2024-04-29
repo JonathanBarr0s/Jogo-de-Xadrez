@@ -4,16 +4,21 @@ namespace Xadrez {
     internal class Program {
         static void Main(string[] args) {
 
-            Tabuleiro tabuleiro = new Tabuleiro(8, 8);
+            try {
 
-            tabuleiro.ColocarPeca(new Torre(Cor.Preta, tabuleiro), new Posicao(0, 0));
-            tabuleiro.ColocarPeca(new Torre(Cor.Preta, tabuleiro), new Posicao(1, 3));
-            tabuleiro.ColocarPeca(new Rei(Cor.Preta, tabuleiro), new Posicao(2, 4));
+                Tabuleiro tabuleiro = new Tabuleiro(8, 8);
 
-            Tela.ImprimirTabuleiro(tabuleiro);
+                tabuleiro.ColocarPeca(new Torre(Cor.Preta, tabuleiro), new Posicao(0, 0));
+                tabuleiro.ColocarPeca(new Torre(Cor.Preta, tabuleiro), new Posicao(1, 3));
+                tabuleiro.ColocarPeca(new Rei(Cor.Preta, tabuleiro), new Posicao(0, 9));
 
-            
+                Tela.ImprimirTabuleiro(tabuleiro);
 
+            } catch (TabuleiroException exception) {
+
+                Console.WriteLine(exception.Message);
+
+            }
         }
     }
 }
