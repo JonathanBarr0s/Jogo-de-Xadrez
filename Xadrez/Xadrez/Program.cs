@@ -1,6 +1,7 @@
 ﻿using Tab;
+using Xadrez;
 
-namespace Xadrez {
+namespace Jogo_de_Xadrez {
     internal class Program {
         static void Main(string[] args) {
 
@@ -8,15 +9,20 @@ namespace Xadrez {
 
                 PartidaDeXadrez partida = new PartidaDeXadrez();
 
-                while (!partida.Terminada)
-                {
+                while (!partida.Terminada) {
                     Console.Clear();
                     Tela.ImprimirTabuleiro(partida.Tabuleiro);
 
                     Console.WriteLine();
-
                     Console.Write("Origem: ");
                     Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
+
+                    bool[,] posicoesPossiveis = partida.Tabuleiro.peca(origem).MovimentosPossiveis();
+
+                    Console.Clear();
+                    Tela.ImprimirTabuleiro(partida.Tabuleiro, posicoesPossiveis);
+
+                    Console.WriteLine();
                     Console.Write("Destino: ");
                     Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
 

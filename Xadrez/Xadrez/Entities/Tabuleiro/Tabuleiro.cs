@@ -1,4 +1,6 @@
-﻿namespace Tab {
+﻿using Tab;
+
+namespace Tab {
     internal class Tabuleiro {
         public int Linhas { get; set; }
         public int Colunas { get; set; }
@@ -34,20 +36,18 @@
         public Peca RetirarPeca(Posicao posicao) {
             if (peca(posicao) == null) {
                 return null;
-            } else {
-                Peca aux = peca(posicao);
-                aux.Posicao = null;
-                pecas[posicao.Linha, posicao.Coluna] = null;
-                return aux;
             }
+            Peca aux = peca(posicao);
+            aux.Posicao = null;
+            pecas[posicao.Linha, posicao.Coluna] = null;
+            return aux;
         }
 
         public bool PosicaoValida(Posicao posicao) {
             if (posicao.Linha < 0 || posicao.Linha >= Linhas || posicao.Coluna < 0 || posicao.Coluna >= Colunas) {
                 return false;
-            } else {
-                return true;
             }
+            return true;
         }
 
         public void ValidarPosicao(Posicao posicao) {
