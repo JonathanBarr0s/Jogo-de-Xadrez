@@ -73,14 +73,7 @@ namespace Jogo_de_Xadrez {
             }
             Console.WriteLine("  a b c d e f g h");
             Console.BackgroundColor = fundoOriginal;
-        }
-
-        public static PosicaoXadrez LerPosicaoXadrez() {
-            string jogada = Console.ReadLine();
-            char coluna = jogada[0];
-            int linha = int.Parse(jogada[1] + "");
-            return new PosicaoXadrez(coluna, linha);
-        }
+        }       
 
         public static void ImprimirPeca(Peca peca) {
             if (peca == null) {
@@ -96,6 +89,13 @@ namespace Jogo_de_Xadrez {
                 }
                 Console.Write(" ");
             }
+        }
+
+        public static PosicaoXadrez LerPosicaoXadrez() {
+            string jogada = Console.ReadLine().ToLower();
+            char coluna = jogada[0];
+            int linha = int.Parse(jogada[1] + "");
+            return new PosicaoXadrez(coluna, linha);
         }
     }
 }
