@@ -6,15 +6,18 @@ namespace Xadrez {
         private PartidaDeXadrez Partida;
 
         public Rei(Tabuleiro tabuleiro, Cor cor, PartidaDeXadrez partida) : base(tabuleiro, cor) {
+
             Partida = partida;
         }
 
         private bool PodeMover(Posicao posicao) {
+
             Peca peca = Tabuleiro.peca(posicao);
             return peca == null || peca.Cor != Cor;
         }
 
         private bool TesteTorreParaRoque(Posicao posicao) {
+
             Peca peca = Tabuleiro.peca(posicao);
             return peca != null && peca is Torre && peca.Cor == Cor && peca.QteMovimentos == 0;
         }
@@ -26,48 +29,56 @@ namespace Xadrez {
 
             //Acima
             posicoesParaMovimentar.DefinirValores(Posicao.Linha - 1, Posicao.Coluna);
+
             if (Tabuleiro.PosicaoValida(posicoesParaMovimentar) && PodeMover(posicoesParaMovimentar)) {
                 movimentosPossiveis[posicoesParaMovimentar.Linha, posicoesParaMovimentar.Coluna] = true;
             }
 
             //Nordeste
             posicoesParaMovimentar.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 1);
+
             if (Tabuleiro.PosicaoValida(posicoesParaMovimentar) && PodeMover(posicoesParaMovimentar)) {
                 movimentosPossiveis[posicoesParaMovimentar.Linha, posicoesParaMovimentar.Coluna] = true;
             }
 
             //Direita
             posicoesParaMovimentar.DefinirValores(Posicao.Linha, Posicao.Coluna + 1);
+
             if (Tabuleiro.PosicaoValida(posicoesParaMovimentar) && PodeMover(posicoesParaMovimentar)) {
                 movimentosPossiveis[posicoesParaMovimentar.Linha, posicoesParaMovimentar.Coluna] = true;
             }
 
             //Sudeste
             posicoesParaMovimentar.DefinirValores(Posicao.Linha + 1, Posicao.Coluna + 1);
+
             if (Tabuleiro.PosicaoValida(posicoesParaMovimentar) && PodeMover(posicoesParaMovimentar)) {
                 movimentosPossiveis[posicoesParaMovimentar.Linha, posicoesParaMovimentar.Coluna] = true;
             }
 
             //Abaixo
             posicoesParaMovimentar.DefinirValores(Posicao.Linha + 1, Posicao.Coluna);
+
             if (Tabuleiro.PosicaoValida(posicoesParaMovimentar) && PodeMover(posicoesParaMovimentar)) {
                 movimentosPossiveis[posicoesParaMovimentar.Linha, posicoesParaMovimentar.Coluna] = true;
             }
 
             //Sudoeste
             posicoesParaMovimentar.DefinirValores(Posicao.Linha + 1, Posicao.Coluna - 1);
+
             if (Tabuleiro.PosicaoValida(posicoesParaMovimentar) && PodeMover(posicoesParaMovimentar)) {
                 movimentosPossiveis[posicoesParaMovimentar.Linha, posicoesParaMovimentar.Coluna] = true;
             }
 
             //Esquerda
             posicoesParaMovimentar.DefinirValores(Posicao.Linha, Posicao.Coluna - 1);
+
             if (Tabuleiro.PosicaoValida(posicoesParaMovimentar) && PodeMover(posicoesParaMovimentar)) {
                 movimentosPossiveis[posicoesParaMovimentar.Linha, posicoesParaMovimentar.Coluna] = true;
             }
 
             //Noroeste
             posicoesParaMovimentar.DefinirValores(Posicao.Linha - 1, Posicao.Coluna - 1);
+
             if (Tabuleiro.PosicaoValida(posicoesParaMovimentar) && PodeMover(posicoesParaMovimentar)) {
                 movimentosPossiveis[posicoesParaMovimentar.Linha, posicoesParaMovimentar.Coluna] = true;
             }
@@ -100,6 +111,7 @@ namespace Xadrez {
                     }
                 }
             }
+
             return movimentosPossiveis;
         }
 
