@@ -4,7 +4,10 @@ namespace Xadrez {
 
     class Peao : Peca {
 
-        public Peao(Tabuleiro tabuleiro, Cor cor) : base(tabuleiro, cor) {
+        private PartidaDeXadrez Partida;
+
+        public Peao(Tabuleiro tabuleiro, Cor cor, PartidaDeXadrez partida) : base(tabuleiro, cor) {
+            Partida = partida;
         }
 
         public override string ToString() {
@@ -43,6 +46,21 @@ namespace Xadrez {
                 if (Tabuleiro.PosicaoValida(posicoesParaMovimentar) && ExisteInimigo(posicoesParaMovimentar)) {
                     movimentosPossiveis[posicoesParaMovimentar.Linha, posicoesParaMovimentar.Coluna] = true;
                 }
+
+                // Jogada Especial: En Passant
+
+                if (Posicao.Linha == 3) {
+                    Posicao esquerda = new Posicao(Posicao.Linha, Posicao.Coluna - 1);
+                    if (Tabuleiro.PosicaoValida(esquerda) && ExisteInimigo(esquerda) && Tabuleiro.peca(esquerda) == Partida.VulneravelEnPassant) {
+                        movimentosPossiveis[esquerda.Linha - 1, esquerda.Coluna] = true;
+                    }
+
+                    Posicao direita = new Posicao(Posicao.Linha, Posicao.Coluna + 1);
+                    if (Tabuleiro.PosicaoValida(direita) && ExisteInimigo(direita) && Tabuleiro.peca(direita) == Partida.VulneravelEnPassant) {
+                        movimentosPossiveis[direita.Linha - 1, direita.Coluna] = true;
+                    }
+                }
+
             } else {
                 posicoesParaMovimentar.DefinirValores(Posicao.Linha + 1, Posicao.Coluna);
                 if (Tabuleiro.PosicaoValida(posicoesParaMovimentar) && Livre(posicoesParaMovimentar)) {
@@ -60,6 +78,20 @@ namespace Xadrez {
                 posicoesParaMovimentar.DefinirValores(Posicao.Linha + 1, Posicao.Coluna + 1);
                 if (Tabuleiro.PosicaoValida(posicoesParaMovimentar) && ExisteInimigo(posicoesParaMovimentar)) {
                     movimentosPossiveis[posicoesParaMovimentar.Linha, posicoesParaMovimentar.Coluna] = true;
+                }
+
+                // Jogada Especial: En Passant
+
+                if (Posicao.Linha == 4) {
+                    Posicao esquerda = new Posicao(Posicao.Linha, Posicao.Coluna - 1);
+                    if (Tabuleiro.PosicaoValida(esquerda) && ExisteInimigo(esquerda) && Tabuleiro.peca(esquerda) == Partida.VulneravelEnPassant) {
+                        movimentosPossiveis[esquerda.Linha + 1, esquerda.Coluna] = true;
+                    }
+
+                    Posicao direita = new Posicao(Posicao.Linha, Posicao.Coluna + 1);
+                    if (Tabuleiro.PosicaoValida(direita) && ExisteInimigo(direita) && Tabuleiro.peca(direita) == Partida.VulneravelEnPassant) {
+                        movimentosPossiveis[direita.Linha + 1, direita.Coluna] = true;
+                    }
                 }
             }
             return movimentosPossiveis;
