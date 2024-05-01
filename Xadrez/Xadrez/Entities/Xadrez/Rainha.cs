@@ -21,7 +21,7 @@ namespace Xadrez {
 
             Posicao posicoesParaMovimentar = new Posicao(0, 0);
 
-            // esquerda
+            //Esquerda
             posicoesParaMovimentar.DefinirValores(Posicao.Linha, Posicao.Coluna - 1);
             while (Tabuleiro.PosicaoValida(posicoesParaMovimentar) && PodeMover(posicoesParaMovimentar)) {
                 movimentosPossiveis[posicoesParaMovimentar.Linha, posicoesParaMovimentar.Coluna] = true;
@@ -31,7 +31,7 @@ namespace Xadrez {
                 posicoesParaMovimentar.DefinirValores(posicoesParaMovimentar.Linha, posicoesParaMovimentar.Coluna - 1);
             }
 
-            // direita
+            //Direita
             posicoesParaMovimentar.DefinirValores(Posicao.Linha, Posicao.Coluna + 1);
             while (Tabuleiro.PosicaoValida(posicoesParaMovimentar) && PodeMover(posicoesParaMovimentar)) {
                 movimentosPossiveis[posicoesParaMovimentar.Linha, posicoesParaMovimentar.Coluna] = true;
@@ -41,7 +41,7 @@ namespace Xadrez {
                 posicoesParaMovimentar.DefinirValores(posicoesParaMovimentar.Linha, posicoesParaMovimentar.Coluna + 1);
             }
 
-            // acima
+            //Acima
             posicoesParaMovimentar.DefinirValores(Posicao.Linha - 1, Posicao.Coluna);
             while (Tabuleiro.PosicaoValida(posicoesParaMovimentar) && PodeMover(posicoesParaMovimentar)) {
                 movimentosPossiveis[posicoesParaMovimentar.Linha, posicoesParaMovimentar.Coluna] = true;
@@ -51,7 +51,7 @@ namespace Xadrez {
                 posicoesParaMovimentar.DefinirValores(posicoesParaMovimentar.Linha - 1, posicoesParaMovimentar.Coluna);
             }
 
-            // abaixo
+            //Abaixo
             posicoesParaMovimentar.DefinirValores(Posicao.Linha + 1, Posicao.Coluna);
             while (Tabuleiro.PosicaoValida(posicoesParaMovimentar) && PodeMover(posicoesParaMovimentar)) {
                 movimentosPossiveis[posicoesParaMovimentar.Linha, posicoesParaMovimentar.Coluna] = true;
@@ -61,7 +61,7 @@ namespace Xadrez {
                 posicoesParaMovimentar.DefinirValores(posicoesParaMovimentar.Linha + 1, posicoesParaMovimentar.Coluna);
             }
 
-            // NO
+            //Noroeste
             posicoesParaMovimentar.DefinirValores(Posicao.Linha - 1, Posicao.Coluna - 1);
             while (Tabuleiro.PosicaoValida(posicoesParaMovimentar) && PodeMover(posicoesParaMovimentar)) {
                 movimentosPossiveis[posicoesParaMovimentar.Linha, posicoesParaMovimentar.Coluna] = true;
@@ -71,7 +71,7 @@ namespace Xadrez {
                 posicoesParaMovimentar.DefinirValores(posicoesParaMovimentar.Linha - 1, posicoesParaMovimentar.Coluna - 1);
             }
 
-            // NE
+            //Nordeste
             posicoesParaMovimentar.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 1);
             while (Tabuleiro.PosicaoValida(posicoesParaMovimentar) && PodeMover(posicoesParaMovimentar)) {
                 movimentosPossiveis[posicoesParaMovimentar.Linha, posicoesParaMovimentar.Coluna] = true;
@@ -81,7 +81,7 @@ namespace Xadrez {
                 posicoesParaMovimentar.DefinirValores(posicoesParaMovimentar.Linha - 1, posicoesParaMovimentar.Coluna + 1);
             }
 
-            // SE
+            //Sudeste
             posicoesParaMovimentar.DefinirValores(Posicao.Linha + 1, Posicao.Coluna + 1);
             while (Tabuleiro.PosicaoValida(posicoesParaMovimentar) && PodeMover(posicoesParaMovimentar)) {
                 movimentosPossiveis[posicoesParaMovimentar.Linha, posicoesParaMovimentar.Coluna] = true;
@@ -91,7 +91,7 @@ namespace Xadrez {
                 posicoesParaMovimentar.DefinirValores(posicoesParaMovimentar.Linha + 1, posicoesParaMovimentar.Coluna + 1);
             }
 
-            // SO
+            //Sudoeste
             posicoesParaMovimentar.DefinirValores(Posicao.Linha + 1, Posicao.Coluna - 1);
             while (Tabuleiro.PosicaoValida(posicoesParaMovimentar) && PodeMover(posicoesParaMovimentar)) {
                 movimentosPossiveis[posicoesParaMovimentar.Linha, posicoesParaMovimentar.Coluna] = true;
